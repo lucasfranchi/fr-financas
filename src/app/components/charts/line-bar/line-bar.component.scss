@@ -1,0 +1,41 @@
+.line-bar {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  gap: 0.5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: var(--bar-width);
+
+    &__bar {
+      background-color: var(--bar-color);
+      min-height: var(--bar-height);
+      border-radius: 5px;
+    }
+
+    &__legend {
+      display: flex;
+      margin-top: 0.5rem;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+
+      &__color {
+        display: flex;
+        background-color: var(--bar-color);
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+      }
+
+      &__value {
+        color: #1b2632;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

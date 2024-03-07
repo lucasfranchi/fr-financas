@@ -1,0 +1,214 @@
+.overview {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  gap: 1rem;
+  grid-template-columns: 0.75fr 1fr 1fr;
+  grid-template-rows: 2fr 2fr 1fr 1fr;
+  grid-template-areas:
+    "total incomes incomes"
+    "plans incomes incomes"
+    "plans transac transac"
+    "plans transac transac";
+
+  &__card {
+    background-color: #fcfcfd;
+    padding: 1.5rem;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.1);
+    color: #8e939a;
+  }
+
+  .total {
+    grid-area: total;
+
+    &__title {
+      display: flex;
+      justify-content: space-between;
+
+      fa-icon {
+        font-size: 1rem;
+        cursor: pointer;
+        color: #8e939a;
+
+        &:hover {
+          color: #8e939a;
+        }
+      }
+    }
+
+    &__saldo {
+      color: #1b2632;
+      font-weight: 600;
+    }
+
+    &__buttons {
+      display: flex;
+      margin-top: 1rem;
+      justify-content: space-evenly;
+      width: 100%;
+      gap: 1rem;
+
+      button {
+        background-color: #5a72cb;
+        border-radius: 10px;
+        height: 45px;
+        width: 100%;
+      }
+    }
+  }
+
+  .incomes {
+    display: grid;
+    grid-area: incomes;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "receber limite limite"
+      "pagar despesas despesas";
+
+    &__total-receber {
+      grid-area: receber;
+      width: 100%;
+      height: 100%;
+      padding: 0 1rem 0 0;
+      border-right: 2px solid #dbdbdb;
+      border-bottom: 2px solid #dbdbdb;
+
+      &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #5a72cb2f;
+        width: 40px;
+        height: 40px;
+        border-radius: 30%;
+        color: #5a72cb;
+      }
+
+      &__saldo {
+        color: #1b2632;
+        font-weight: 600;
+      }
+
+      &__perc-positiva {
+        color: #8cd5b6;
+        display: flex;
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+      }
+
+      &__perc-negativa {
+        color: #f78e8f;
+        display: flex;
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__limite {
+      grid-area: limite;
+      width: 100%;
+      height: 100%;
+      border-bottom: 2px solid #dbdbdb;
+      padding: 0 0 0 1rem;
+
+      &::ng-deep {
+        .mat-mdc-progress-bar {
+          --mdc-linear-progress-active-indicator-color:#4567e0;
+          --mdc-linear-progress-track-color: rgba(63, 81, 181, 0.2)
+        }
+      }
+
+      --mdc-linear-progress-active-indicator-height: 8px;
+
+      &__title {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+
+      &__info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &__total-pagar {
+      grid-area: pagar;
+      width: 100%;
+      height: 100%;
+      border-right: 2px solid #dbdbdb;
+      padding: 1rem 1rem 0 0;
+
+      &__title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f574742f;
+        width: 40px;
+        height: 40px;
+        border-radius: 30%;
+        color: #f57474;
+      }
+
+      &__saldo {
+        color: #1b2632;
+        font-weight: 600;
+      }
+
+      &__perc-positiva {
+        color: #8cd5b6;
+        display: flex;
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+      }
+
+      &__perc-negativa {
+        color: #f78e8f;
+        display: flex;
+        gap: 0.5rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__analise-despesas {
+      grid-area: despesas;
+      width: 100%;
+      height: 100%;
+      padding: 1rem 0 0 1rem;
+
+      &__title {
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+    }
+  }
+
+  .plans {
+    grid-area: plans;
+  }
+
+  .transac {
+    grid-area: transac;
+  }
+}

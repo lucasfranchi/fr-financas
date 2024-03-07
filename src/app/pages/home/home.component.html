@@ -1,0 +1,33 @@
+<div class="home h-100 w-100">
+  <div class="home__header">
+    <div class="home__header__line1">
+      <div class="d-flex justify-center align-center">
+        <img src="assets/images/logo.png" class="home__header__line1__image">
+        <div class="home__header__line1__options">
+            <div>Dashboard</div>
+            <div>Carteiras</div>
+            <div>Configuracoes</div>
+        </div>
+      </div>
+      <div class="home__header__line1__search-acc">
+        <div class="home__header__line1__search-acc__input">
+          <fa-icon [icon]="icons.faSearch"></fa-icon>
+          <input type="text" placeholder="Procure algo aqui">
+        </div>
+        <div class="home__header__line1__search-acc__user">
+          <fa-icon [icon]="icons.faUser"></fa-icon>
+        </div>
+      </div>
+    </div>
+    <div class="home__header__line2">
+      <h4>Welcome back, Lucas Franchi !</h4>
+    </div>
+  </div>
+  <div class="home__tabs-container">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="h-100 w-100">
+      <mat-tab label="Overview" class="h-100 w-100"><fr-overview></fr-overview></mat-tab>
+      <mat-tab label="Transações">Content 2</mat-tab>
+      <mat-tab label="Planejamentos">Content 3</mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

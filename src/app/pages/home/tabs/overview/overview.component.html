@@ -1,0 +1,118 @@
+<div class="overview">
+  <div class="overview__card total">
+    <h6 class="total__title">
+      Saldo total
+      <fa-icon
+        [icon]="mostraSaldo ? icons.faEye : icons.faEyeSlash"
+        (click)="mostraSaldo = !mostraSaldo"
+      ></fa-icon>
+    </h6>
+    @if (mostraSaldo) {
+    <h1 class="total__saldo">{{ saldoTotal | currency : "BRL" }}</h1>
+    } @else {
+    <h1 class="total__saldo">•••••••••••</h1>
+    }
+    <div class="total__buttons">
+      <button mat-raised-button color="primary">
+        <fa-icon [icon]="icons.faTransfer" classe="mr-1"></fa-icon>
+        Transferir
+      </button>
+      <button mat-raised-button color="primary">
+        <fa-icon [icon]="icons.faPiggyBank" classe="mr-1"></fa-icon>
+        Depositar
+      </button>
+    </div>
+  </div>
+
+  <div class="overview__card incomes">
+    <div class="incomes__total-receber">
+      <h6 class="incomes__total-receber__title">
+        Total a receber
+        <div class="incomes__total-receber__icon">
+          <fa-icon [icon]="icons.faSackDollar"></fa-icon>
+        </div>
+      </h6>
+      <h2 class="incomes__total-receber__saldo">
+        {{ totalReceber.total | currency : "BRL" }}
+      </h2>
+      @if(totalReceber.percentual != 0) {
+      <div class="d-flex">
+        <div
+          [class.incomes__total-receber__perc-positiva]="
+            totalReceber.percentual > 0
+          "
+          [class.incomes__total-receber__perc-negativa]="
+            totalReceber.percentual < 0
+          "
+        >
+          <fa-icon
+            [icon]="
+              totalReceber.percentual > 0 ? icons.faArrowUp : icons.faArrowDown
+            "
+          ></fa-icon>
+          {{
+            totalReceber.percentual > 0
+              ? "+" + totalReceber.percentual
+              : totalReceber.percentual
+          }}%
+        </div>
+        comparado ao ultimo mês
+      </div>
+      }
+    </div>
+    <div class="incomes__limite">
+      <h6 class="incomes__limite__title">Limite esperado</h6>
+      <div class="incomes__limite__info">
+        <h2 class="incomes__total-receber__saldo">
+          {{ totalPagar.total | currency : "BRL" }}
+        </h2>
+        utilizados de {{ totalReceber.total | currency : "BRL" }}
+      </div>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="(totalPagar.total * 100) / totalReceber.total"
+      ></mat-progress-bar>
+    </div>
+    <div class="incomes__total-pagar">
+      <h6 class="incomes__total-pagar__title">
+        Total de despesas
+        <div class="incomes__total-pagar__icon">
+          <fa-icon [icon]="icons.faBagShopping"></fa-icon>
+        </div>
+      </h6>
+      <h2 class="incomes__total-pagar__saldo">
+        {{ totalPagar.total | currency : "BRL" }}
+      </h2>
+      @if(totalPagar.percentual != 0) {
+      <div class="d-flex">
+        <div
+          [class.incomes__total-pagar__perc-positiva]="
+            totalPagar.percentual < 0
+          "
+          [class.incomes__total-pagar__perc-negativa]="
+            totalPagar.percentual > 0
+          "
+        >
+          <fa-icon
+            [icon]="
+              totalPagar.percentual > 0 ? icons.faArrowUp : icons.faArrowDown
+            "
+          ></fa-icon>
+          {{
+            totalPagar.percentual > 0
+              ? "+" + totalPagar.percentual
+              : totalPagar.percentual
+          }}%
+        </div>
+        comparado ao ultimo mês
+      </div>
+      }
+    </div>
+    <div class="incomes__analise-despesas">
+      <h6 class="incomes__analise-despesas__title">Análise de despesas</h6>
+      <fr-line-bar [content]="contentDespesa"></fr-line-bar>
+    </div>
+  </div>
+  <div class="overview__card plans">planos</div>
+  <div class="overview__card transac">transactions</div>
+</div>

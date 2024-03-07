@@ -1,0 +1,20 @@
+<div class="line-bar">
+  @for (item of content; track item; let index = $index) {
+  <div class="line-bar__content" style="--bar-width: {{item.porcentagem}}%">
+    <span
+      class="line-bar__content__bar"
+      style="--bar-color: {{ colors[index] }}; --bar-height: {{
+        8
+      }}px;"
+    ></span>
+    <div class="line-bar__content__legend">
+      <span
+        class="line-bar__content__legend__color"
+        style="--bar-color: {{ colors[index] }}"
+      ></span>
+      {{item.label}}
+    </div>
+    <p class="line-bar__content__legend__value">{{ item.value | currency: "BRL" }}</p>
+  </div>
+  }
+</div>
