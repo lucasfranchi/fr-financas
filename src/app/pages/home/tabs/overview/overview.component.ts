@@ -44,15 +44,27 @@ export class OverviewComponent {
   contentDespesa: LineBarContent[] = [
     {
       label: "Spotify",
-      value: 50
+      value: 500
     },
     {
       label: "Netflix",
-      value: 50
+      value: 250
+    },
+    {
+      label: "Faculdade",
+      value: 10
+    },
+    {
+      label: "Faculdade",
+      value: 25
     },
     {
       label: "Faculdade",
       value: 30
+    },
+    {
+      label: "Faculdade",
+      value: 20
     }
   ]
 
